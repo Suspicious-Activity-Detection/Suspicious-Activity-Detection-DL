@@ -26,3 +26,13 @@ To combine the predictions of the multiple LRCN models, we used the majority vot
 
 ![LRCN Model](Images/LRCN_Model.png)
 
+## Motionless Object Detection
+The model first detects the specific objects defined in class_labels and draws bounding boxes around them using a pre-trained 'YOLOv5' model. The algorithm then tracks the position of the detected objects over time. By calculating the distance between consecutive object positions using the Euclidean distance method, the model determines if the object remains within a predefined threshold for a specific duration. If the object is motionless for a duration exceeding the duration_threshold, it is flagged as suspicious. On the other hand, if the object moves or a certain amount of time elapses, the algorithm resets the tracking and continues monitoring for other motionless objects. Annotated frames, denoting motionless suspiciously lying objects, are written to the output video. Overall, this model effectively identifies and highlights static objects which can pose threats, aiding in security and surveillance applications.
+
+## Overall Flow of Model
+The input video is initially processed by the LRCN model, which focuses on detecting suspicious activities. This model examines the video frames and annotates them with the corresponding activity class it identifies. Once the video has been processed by the LRCN model, the resulting output video is then passed through the Motionless Object Detection Algorithm.
+The Motionless Object Detection Algorithm plays a crucial role in identifying stationary suspicious objects within the video. It carefully examines each frame and looks for objects that exhibit little to no movement over a significant duration. If such an object is detected, the algorithm draws a distinctive red bounding box around it to highlight its presence.
+By combining the analysis from both the LRCN model and the Motionless Object Detection Algorithm, our system can effectively identify and annotate suspicious activities in the video footage, as well as detect stationary suspicious objects that may require further investigation.
+
+
+
