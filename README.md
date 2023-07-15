@@ -31,8 +31,33 @@ The model first detects the specific objects defined in class_labels and draws b
 
 ## Overall Flow of Model
 The input video is initially processed by the LRCN model, which focuses on detecting suspicious activities. This model examines the video frames and annotates them with the corresponding activity class it identifies. Once the video has been processed by the LRCN model, the resulting output video is then passed through the Motionless Object Detection Algorithm.
+
 The Motionless Object Detection Algorithm plays a crucial role in identifying stationary suspicious objects within the video. It carefully examines each frame and looks for objects that exhibit little to no movement over a significant duration. If such an object is detected, the algorithm draws a distinctive red bounding box around it to highlight its presence.
+
 By combining the analysis from both the LRCN model and the Motionless Object Detection Algorithm, our system can effectively identify and annotate suspicious activities in the video footage, as well as detect stationary suspicious objects that may require further investigation.
 
+![Flowchart](Images/flowchart.png)
+
+## Model Output
+We enhanced the visualization of our model's predictions by annotating the input video with informative elements. We drew green bounding boxes around the detected bags to highlight their presence and location within the frame. We further differentiated between bags in motion and stationary bags by dynamically adjusting the color of the bounding box. When a bag remained motionless for a duration exceeding a predefined threshold, the color of the bounding box transitioned to red, as shown in figure below, providing a clear indication of prolonged immobility.
+
+![Motionless bag](Images/Motionless_bag.png)
+
+Upon classifying the detected activity, we dynamically displayed the name of the corresponding suspicious activity class on the input video, as illustrated in the figure below.
+
+![Predicted labels](Images/Predicted_labels.png)
+
+ By incorporating these visual elements, our annotation technique enhances the clarity and comprehensibility of the model's predictions. The combination of annotated bounding boxes and dynamic text annotations facilitates a more intuitive interpretation of the model's detection and classification capabilities, enabling users to identify and analyze suspicious activities in surveillance videos quickly.
+
+
+## Analysis of Ensemble Performance
+
+The graphs shown in the figure below depict the convergence behavior of multiple models during the training process. The first two graphs illustrate each model's training and validation accuracy curves, representing the models' accuracy values throughout the training process. The increasing accuracy trend suggests that the models are improving their predictive performance. In both graphs, the convergence of the curves indicates that the models have reached a stable state, where further training may not yield significant improvements. The last two graphs show the training and validation loss curves, indicating each model's change in loss values over epochs. The decreasing trend in the loss signifies that the models are improving their performance and learning from the training data. 
+
+![Model Convergence](Images/Model_convergence.png)
+
+The box plots in the figure depict the distribution of training and validation loss and training and validation accuracy for the ensemble models. The first two graphs show the training and validation accuracy box plots showcasing the distribution of accuracy values across the ensemble models. The y-axis represents the accuracy values, while the x-axis represents the models. Similarly, the last two graphs show the training and validation loss box plots illustrating the spread of loss values across the ensemble models. The y-axis represents the loss values, while the x-axis indicates the models. By analyzing these box plots, we can gain insights into the spread and stability of loss and accuracy values within the ensemble. They contribute to understanding the ensemble models' convergence behavior and performance characteristics.
+
+![Bocplots](Images/Boxplots.png)
 
 
