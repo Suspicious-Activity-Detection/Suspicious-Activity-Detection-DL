@@ -24,5 +24,5 @@ To increase the model's generalization performance, we trained several LRCN mode
 
 To combine the predictions of the multiple LRCN models, we used the majority voting ensemble technique. For each test video, we made predictions using each of the six trained models and then selected the most common prediction as the final prediction. 
 
-![Image Description](path/to/image.png)
+![LRCN Model](Images/LRCN_Model.png)
 
