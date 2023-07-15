@@ -60,4 +60,11 @@ The box plots in the figure depict the distribution of training and validation l
 
 ![Bocplots](Images/Boxplots.png)
 
+## Conclusion
+We have demonstrated the successful prediction of classes of activities (suspicious and non-suspicious) and suspicious objects using the Majority Voting-LRCN model, which gives a much better performance than the regular LRCN model and using the Yolo V5 object detection model. 
 
+The accurate classification of activities presented in this research holds great potential for various real-time surveillance applications. By leveraging the capabilities of the Majority Voting-LRCN model, it becomes feasible to develop an advanced surveillance system that can actively monitor CCTV data in real time. Such a system has the potential to enhance public safety, prevent potential casualties, and facilitate the identification of individuals involved in suspicious activities.
+
+Integrating this predictive model into existing surveillance systems can significantly augment their effectiveness. The system can swiftly identify and flag potential threats or suspicious behaviors by continuously analyzing video footage, allowing security personnel to respond promptly and effectively. This proactive approach can mitigate security risks and enhance the overall security infrastructure.
+
+It is important to note that further research and development are required to refine and optimize the proposed model. Future endeavors should focus on expanding the range of detectable activities and objects, improving the accuracy of predictions, and addressing limitations such as real-time data capturing and variability in ensemble algorithm runs. Additionally, incorporating higher-resolution surveillance networks can enhance the system's performance, especially in real-time recordings characterized by noise and low-quality footage.
